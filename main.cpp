@@ -24,7 +24,7 @@ bool isSunlight(cv::Mat image) {
     int hist_h = 1080;
     int bin_w = cvRound((double) hist_w / 256);
 
-    cv::Mat histImage(hist_h, hist_w, CV_8UC1, Scalar(255, 255, 255));
+    cv::Mat histImage(hist_h, hist_w, CV_8UC1, cv::Scalar(255, 255, 255));
 
     int max = histogram[0];
     for (int i = 1; i < 256; i++) {
@@ -38,7 +38,7 @@ bool isSunlight(cv::Mat image) {
     }
 
     for (int i = 0; i < 255; i++) {
-        line(histImage, Point(bin_w * (i), hist_h),
+        line(histImage, cv::Point(bin_w * (i), hist_h),
              cv::Point(bin_w * (i), hist_h - histogram[i]),
              cv::Scalar(0, 0, 0), 1, 8, 0);
     }
@@ -65,7 +65,7 @@ int main() {
 		
 
 		cv::imshow("SunDetector",image);
-		char c = (char) waitKey(25);
+		char c = (char) cv::waitKey(25);
 		if(c == 27 || c == 32){
 			break;
 		}
