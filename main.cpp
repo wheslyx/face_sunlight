@@ -65,8 +65,8 @@ bool isSunlight(cv::Mat image) {
 
     for (int i = 0; i < 255; i++) {
         line(histImage, Point(bin_w * (i), hist_h),
-             Point(bin_w * (i), hist_h - histogram[i]),
-             Scalar(0, 0, 0), 1, 8, 0);
+             cv::Point(bin_w * (i), hist_h - histogram[i]),
+             cv::Scalar(0, 0, 0), 1, 8, 0);
     }
 
 }
