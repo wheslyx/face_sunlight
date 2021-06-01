@@ -58,7 +58,7 @@ bool isSunlight(cv::Mat image, int width, int height) {
 int main() {
 	
 	cv::VideoCapture cap;
-	cap = cv::VideoCapture("/home/fcs10/Imágenes/1.png");
+	cap = cv::VideoCapture("/home/fcs10/1.jpg");
 	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
 	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
  	bool sun_status;
