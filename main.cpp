@@ -5,7 +5,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 
-bool isSunlight(cv::Mat image) {
+bool isSunlight(cv::Mat image, int width, int height) {
     
     int histogram[256];
 
@@ -58,7 +58,7 @@ bool isSunlight(cv::Mat image) {
 int main() {
 	
 	cv::VideoCapture cap;
-	cap = cv::VideoCapture(0);
+	cap = cv::VideoCapture("/home/fcs10/Imágenes/1.png");
 	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
 	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
  	bool sun_status;
@@ -70,7 +70,7 @@ int main() {
 			break;
 		}
 		
-		sun_status = isSunlight(image);
+		sun_status = isSunlight(image,frame_width, frame_heigth);
 		cv::putText(image, std::to_string(sun_status), cv::Point2f(20,20), cv::FONT_HERSHEY_SIMPLEX, 2, cv::Scalar(0,255,0),2,8,false);
 		
 
