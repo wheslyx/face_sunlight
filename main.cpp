@@ -5,36 +5,6 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 
-int main() {
-	
-	cv::VideoCapture cap;
-	cap = cv::VideoCapture(0);
-	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
-	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
- 	bool sun_status;
-	while(true) {
-		cv::Mat image,gray;
-		cap >> image;
-
-		if (image.empty()) {
-			break;
-		}
-		
-		sun_status = isSunlight(image);
-		cv::putText(image, std::to_string(sun_status), cv::Point2f(20,20), cv::FONT_HERSHEY_SIMPLEX, 2, cv::Scalar(0,255,0),2,8,false);
-		
-
-		cv::imshow("SunDetector",image);
-		char c = (char) waitKey(25);
-		if(c == 27 || c == 32){
-			break;
-		}
-	}
-
-	return 0;
-}
-
-
 bool isSunlight(cv::Mat image) {
     
     int histogram[256];
@@ -74,3 +44,34 @@ bool isSunlight(cv::Mat image) {
     }
 
 }
+
+int main() {
+	
+	cv::VideoCapture cap;
+	cap = cv::VideoCapture(0);
+	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
+	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
+ 	bool sun_status;
+	while(true) {
+		cv::Mat image,gray;
+		cap >> image;
+
+		if (image.empty()) {
+			break;
+		}
+		
+		sun_status = isSunlight(image);
+		cv::putText(image, std::to_string(sun_status), cv::Point2f(20,20), cv::FONT_HERSHEY_SIMPLEX, 2, cv::Scalar(0,255,0),2,8,false);
+		
+
+		cv::imshow("SunDetector",image);
+		char c = (char) waitKey(25);
+		if(c == 27 || c == 32){
+			break;
+		}
+	}
+
+	return 0;
+}
+
+
