@@ -43,6 +43,16 @@ bool isSunlight(cv::Mat image) {
              cv::Scalar(0, 0, 0), 1, 8, 0);
     }
 
+    int totPixeles = image.rows * image.cols;
+    int numWhite = hist[255];
+    float percentageWhites = (numWhite * 100) / totPixeles;
+
+    if (percentageWhites > 9) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 int main() {
