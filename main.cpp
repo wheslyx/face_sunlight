@@ -52,7 +52,7 @@ bool isSunlight(cv::Mat image, int width, int height) {
     int numWhite = max;
     float percentageWhites = (numWhite * 100) / totPixeles;
     std::cout << "Whites :" << percentageWhites << std::endl;
-    if (percentageWhites > 5) {
+    if (percentageWhites > 9) {
         return true;
     } else {
         return false;
@@ -63,7 +63,7 @@ bool isSunlight(cv::Mat image, int width, int height) {
 int main() {
 	
 	cv::VideoCapture cap;
-	cap = cv::VideoCapture("/home/fcs10/1.jpg");
+	cap = cv::VideoCapture(0);
 	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
 	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
  	bool sun_status;
