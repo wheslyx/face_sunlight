@@ -17,8 +17,8 @@ bool isSunlight(cv::Mat image, int width, int height) {
         for (int x = 0; x < image.cols; x++)
             histogram[(int) image.at<uchar>(y, x)]++;
 
-    //for (int i = 0; i < 256; i++)
-    //    std::cout << histogram[i] << " ";
+    for (int i = 0; i < 256; i++)
+        std::cout << histogram[i] << " ";
 
     int hist_w = width;
     int hist_h = height;
