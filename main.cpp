@@ -22,6 +22,8 @@ bool isSunlight(cv::Mat image, int width, int height) {
 
     int hist_w = width;
     int hist_h = height;
+    std::cout  << "Width :" << hist_w << std::endl;
+    std::cout  << "height :" << hist_h << std::endl;
     int bin_w = cvRound((double) hist_w / 256);
 
     cv::Mat histImage(hist_h, hist_w, CV_8UC1, cv::Scalar(255, 255, 255));
