@@ -32,7 +32,8 @@ int main() {
 
 
 bool isSunlight(cv::Mat image) {
-    std::vector<int> histogram[256];
+    
+    int histogram[256];
 
     for (int i = 0; i < 255; i++) {
         histogram[i] = 0;
