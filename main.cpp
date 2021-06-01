@@ -24,6 +24,9 @@ bool isSunlight(cv::Mat image, int width, int height) {
     int hist_h = height;
     std::cout  << "Width :" << hist_w << std::endl;
     std::cout  << "height :" << hist_h << std::endl;
+    
+    std::cout  << "Width 2 :" << image.cols << std::endl;
+    std::cout  << "height 2 :" << image.rows << std::endl;
     int bin_w = cvRound((double) hist_w / 256);
 
     cv::Mat histImage(hist_h, hist_w, CV_8UC1, cv::Scalar(255, 255, 255));
@@ -45,8 +48,8 @@ bool isSunlight(cv::Mat image, int width, int height) {
              cv::Scalar(0, 0, 0), 1, 8, 0);
     }
 
-    int totPixeles = image.rows * image.cols;
-    int numWhite = histogram[255];
+    int totPixeles = width * height;
+    int numWhite = histogram[0];
     float percentageWhites = (numWhite * 100) / totPixeles;
     std::cout << "Whites :" << percentageWhites << std::endl;
     if (percentageWhites > 9) {
