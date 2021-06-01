@@ -9,8 +9,8 @@ int main() {
 	
 	cv::VideoCapture cap;
 	cap = cv::VideoCapture(0);
-	int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
-	int frame_heigth = cap.get(CAP_PROP_FRAME_HEIGHT);
+	int frame_width = cap.get(cv::CAP_PROP_FRAME_WIDTH);
+	int frame_heigth = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
  	bool sun_status;
 	while(true) {
 		cv::Mat image,gray;
