@@ -44,7 +44,7 @@ bool isSunlight(cv::Mat image) {
 
     for (int i = 0; i < 256; i++)
         std::cout << histogram[i] << " ";
-s
+
     int hist_w = 1920;
     int hist_h = 1080;
     int bin_w = cvRound((double) hist_w / 256);
@@ -67,3 +67,5 @@ s
              Point(bin_w * (i), hist_h - histogram[i]),
              Scalar(0, 0, 0), 1, 8, 0);
     }
+
+}
